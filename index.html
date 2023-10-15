@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project Name</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your inline styles here, if needed */
+        /* Reset some default styles for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Add other CSS styles for your header, sections, and footer */
+    </style>
+</head>
+
+<body>
+    <div id="parallax-container"></div>
+    <div id="content-container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="D:\WebDev\HTML\HackathonIEEE\Iterinary.jpg">Itinerary</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="hero">
+            <h1 id="maintitle">SafeRides</h1>
+            <div style="width: 100%;">
+                <div style="width: 50%; height: 100px; float: left;" id="lefttext" class="animated-text">
+                    Empowering Women for Safer Rides
+                </div>
+                <div style="margin-left: 50%; height: 100px;" id="righttext" class="animated-text">
+                    Ensuring safer rides for women
+                </div>
+                <br>
+                <br>
+                <br>
+                <a href="D:\WebDev\HTML\HackathonIEEE\Booking\Booking.html" class="cta-button">Book a ride now!</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to SafeRides, a leading platform dedicated to empowering women for safer rides.
+                Our mission is to provide a secure and reliable space for women to travel with confidence. Founded in
+                2023, we have remained committed to connecting women with female drivers, ensuring comfortable and
+                trustworthy rides.<br><br>
+
+                At SafeRides, we firmly believe that every woman should have access to safe and
+                dependable transportation options. Our core commitment lies in building a community of women who can
+                travel with assurance, knowing they are in safe hands.<br><br>
+
+                Key elements of SafeRides include female drivers, real-time tracking, emergency
+                alerts, and access to reviews. We prioritize safety and convenience, ensuring that your journey is as
+                secure as it is comfortable.
+            </p>
+        </section>
+
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul class="list">
+                <li id="featurelist">
+                    <section id="female-drivers">
+                        <button id="openPopupButton">Female Drivers</button>
+
+                        <!-- Popup Form (Hidden by default) -->
+                        <div id="popupForm" class="modal">
+                            <div class="modal-content">
+                                <span class="close" id="closePopup">&times;</span>
+                                <h3>Book a Female Driver</h3>
+                                <form id="femaleDriverForm">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="destination">Destination:</label>
+                                        <input type="text" id="destination" name="destination" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="driver">Select a Female Driver:</label>
+                                        <select id="driver" name="driver" required>
+                                            <option value="Driver 1">Driver 1</option>
+                                            <option value="Driver 2">Driver 2</option>
+                                            <!-- Add more driver options here -->
+                                        </select>
+                                        <button id="getLocationButton">Get My Location</button>
+                                        <div id="locationInfo"></div>
+                                    </div>
+                                    <button type="submit">Submit Booking</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </li>
+                <!-- <li>Real-Time Tracking</li>
+                <li>Emergency Alerts</li> -->
+                <li>24/7 Support</li>
+                <li>Area specific reviews</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to get in touch with us at
+                <a href="mailto:saferides@gmail.com">saferides@gmail.com</a>.
+            </p>
+            <p>
+                Number: 87089xxx55
+            </p>
+        </section>
+
+        <div class="feedback-and-reviews">
+            <section id="feedback">
+                <h2 id="feedbacktitle">Feedback and Reviews</h2>
+                <div class="review">
+                    <h3>User1</h3>
+                    <p>"This platform has made a huge difference in my daily commute. I feel safe and comfortable, and
+                        the female drivers are great."
+                    </p>
+                </div>
+                <div class="review">
+                    <h3>User2</h3>
+                    <p>"I highly recommend this service to all women looking for a safer ride-sharing option. The
+                        emergency alert feature is a great addition."
+                    </p>
+                </div>
+                <!-- Add more reviews here if needed -->
+
+                <!-- Add the review form here -->
+                <div class="review-form">
+                    <h3>Add a Review</h3>
+                    <form id="review-form" autocomplete="off">
+                        <div class="form-group">
+                            <label for="reviewerName">Name:</label>
+                            <input type="text" id="reviewerName" name="reviewerName"autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Review:</label>
+                            <textarea id="reviewText" name="reviewText" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <p>&copy; 2023 SafeRides</p>
+        </footer>
+    </div>
+</body>
+<script>
+    document.getElementById("review-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("reviewerName").value;
+        const reviewText = document.getElementById("reviewText").value;
+
+        if (name && reviewText) {
+            // Create a new review element
+            const newReview = document.createElement("div");
+            newReview.classList.add("review");
+            newReview.innerHTML = `<h3>${name}</h3><p>${reviewText}</p>`;
+
+            // Append the new review to the reviews section
+            const reviewsSection = document.querySelector(".feedback-and-reviews");
+            reviewsSection.appendChild(newReview);
+
+            // Clear the form fields
+            document.getElementById("reviewerName").value = "";
+            document.getElementById("reviewText").value = "";
+        }
+    });
+</script>
+
+
+
+<script>
+    function getUserLocation() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                const locationInfo = document.getElementById("locationInfo");
+
+                // Display latitude and longitude
+                locationInfo.innerHTML = `Latitude: ${lat}<br>Longitude: ${lng}`;
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
+
+    document.getElementById("getLocationButton").addEventListener("click", getUserLocation);
+</script>
+
+<script>
+    // JavaScript for showing and hiding the popup
+    document.getElementById("openPopupButton").addEventListener("click", function () {
+        document.getElementById("popupForm").classList.add("visible");
+    });
+
+    document.getElementById("closePopup").addEventListener("click", function () {
+        document.getElementById("popupForm").classList.remove("visible");
+    });
+
+    // JavaScript for form submission (you can adapt this to your needs)
+    document.getElementById("femaleDriverForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const destination = document.getElementById("destination").value;
+
+        // Process the form data (e.g., send it to a server or perform any desired actions)
+
+        // Close the popup
+        document.getElementById("popupForm").classList.remove("visible");
+    });
+
+</script>
+
+</html>
