@@ -1,1 +1,2 @@
 # TechTitans-IEEE
+# INDEX.HTML IS THE MAIN FILE
