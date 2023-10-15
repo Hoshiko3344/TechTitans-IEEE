@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="bookstyles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="D:\WebDev\HTML\HackathonIEEE\Iterinary.jpg">Itinerary</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button id="open-chatbot">Open Chatbot</button>
+
+    <div id="chatbot-popup">
+        <div id="chatbot-content">
+            <div id="chatbot-header">
+                <h2>Emergency Chatbot</h2>
+                <button id="close-chatbot">Close</button>
+            </div>
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <section id="booking-form">
+        <h2>Book a Ride</h2>
+        <form id="booking-form">
+            <label for="pickup-location">Pickup Location:</label>
+            <input type="text" id="pickup-location" class="input"style="width: 700px"; autocomplete="off" required>
+            <br>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" class="input" style="width: 700px";autocomplete="off" required>
+            <br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" class="input"style="width: 700px"; autocomplete="off" required>
+            <br>
+            <label for="time">Time:</label>
+            <input type="time" id="time"  style="width: 700px"; required>
+            <br>
+            <input type="button" class="cta-button" value="Book Now" autocomplete="off" onclick="displayBookingInfo()">
+        </form>
+    </section>
+
+    <section id="booking-confirmation">
+        <h2 class="blackh2">Booking Confirmation</h2>
+        <p id="confirmation-details"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 SafeRides</p>
+    </footer>
+
+    <script>
+        function displayBookingInfo() {
+            const pickupLocation = document.getElementById("pickup-location").value;
+            const destination = document.getElementById("destination").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+
+            const confirmationDetails = document.getElementById("confirmation-details");
+            confirmationDetails.innerHTML = `<strong>Pickup Location:</strong> ${pickupLocation}<br>`;
+            confirmationDetails.innerHTML += `<strong>Destination:</strong> ${destination}<br>`;
+            confirmationDetails.innerHTML += `<strong>Date:</strong> ${date}<br>`;
+            confirmationDetails.innerHTML += `<strong>Time:</strong> ${time}`;
+        }
+    </script>
+</body>
+</html>
